@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidados del Paciente - Ateromatosis Carotídea</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #009688;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e0f2f1;
+        }
+        .jumbotron {
+            background: linear-gradient(135deg, #009688, #004d40);
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 0;
+        }
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .jumbotron p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .jumbotron .button-group a {
+            margin: 0.5rem;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button-group a.call {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        .button-group a.call:hover {
+            background-color: #c0392b;
+        }
+        .button-group a.contact {
+            background-color: #27ae60;
+            color: #fff;
+        }
+        .button-group a.contact:hover {
+            background-color: #1e8449;
+        }
+        .section {
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .urgent {
+            background-color: #ffebee;
+            color: #d32f2f;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .heart-pulse {
+            animation: pulse 1s infinite;
+            font-size: 3rem;
+            color: #e74c3c;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .heartbeat {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .heartbeat .line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #e74c3c;
+            animation: heartbeat 1s infinite;
+        }
+        .heartbeat .line:nth-child(1) { top: 10%; }
+        .heartbeat .line:nth-child(2) { top: 30%; }
+        .heartbeat .line:nth-child(3) { top: 50%; }
+        .heartbeat .line:nth-child(4) { top: 70%; }
+        @keyframes heartbeat {
+            0% { transform: scaleX(0.5); }
+            50% { transform: scaleX(1.5); }
+            100% { transform: scaleX(0.5); }
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: url('Captura.png') no-repeat center center;
+            background-size: cover;
+            border: 2px dashed #aaa;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .footer {
+            padding: 15px;
+            background-color: #009688;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .section-heading {
+            font-size: 2rem;
+            color: #009688;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .section-content {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .interactive-btn {
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: background-color 0.3s;
+            margin: 0.5rem;
+        }
+        .interactive-btn:hover {
+            background-color: #004d40;
+        }
+        .animated-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .animated-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 150, 136, 0.1);
+            animation: slide 3s infinite;
+        }
+        @keyframes slide {
+            0% { left: -100%; }
+            50% { left: 0; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Cuidados del Paciente</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#section1">Medidas Preventivas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section2">Síntomas de un ACV</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section3">Plan de Acción</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section4">Cómo Evitar el Estrés</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Cuidados del Paciente</h1>
+        <p class="lead">Ateromatosis Carotídea</p>
+        <p class="lead">
+            La ateromatosis carotídea es una enfermedad en la que se produce la acumulación de placas de ateroma en las arterias carótidas, que son los vasos sanguíneos principales que suministran sangre al cerebro. Estas placas están formadas por grasa, colesterol y otras sustancias. Con el tiempo, estas placas pueden estrechar o bloquear el flujo sanguíneo hacia el cerebro, aumentando el riesgo de accidente cerebrovascular (ACV) o ictus.
+        </p>
+        <div class="heart-pulse">
+            <i class="fa fa-heart"></i>
+        </div>
+        <p>Información esencial para el cuidado del paciente y cómo reaccionar en una emergencia.</p>
+        <div class="button-group">
+            <a class="interactive-btn" href="#section1">Medidas Preventivas</a>
+            <a class="interactive-btn" href="#section2">Síntomas de un ACV</a>
+            <a class="interactive-btn" href="#section3">Plan de Acción</a>
+            <a class="interactive-btn" href="#section4">Cómo Evitar el Estrés</a>
+        </div>
+        <div class="button-group">
+            <a class="interactive-btn call" href="tel:131">Llamar al SAMU</a>
+            <a class="interactive-btn contact" href="https://chat.whatsapp.com/yourchatlink" target="_blank">whatsApp</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="animated-section">
+            <div id="section1" class="section">
+                <h2 class="section-heading">Medidas Preventivas</h2>
+                <p class="section-content">
+                    <ul>
+                        <li>Evitar el estrés y las situaciones que puedan causar enojo o ansiedad.</li>
+                        <li>Mantener una dieta equilibrada y baja en grasas saturadas.</li>
+                        <li>Incentivar la actividad física regular.</li>
+                        <li>Controlar la presión arterial y los niveles de colesterol.</li>
+                        <li>Seguir las recomendaciones médicas y tomar los medicamentos según lo prescrito.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="section2" class="section">
+                <h2 class="section-heading">Síntomas de un ACV</h2>
+                <p class="section-content">
+                    <ul>
+                        <li><strong>Debilidad en un lado del cuerpo:</strong> El paciente puede tener debilidad o parálisis en un brazo o una pierna, o en un lado de su cara.</li>
+                        <li><strong>Dificultad para hablar:</strong> El paciente puede tener dificultad para hablar o entender el lenguaje.</li>
+                        <li><strong>Problemas de visión:</strong> Pérdida de visión en uno o ambos ojos.</li>
+                        <li><strong>Dolor de cabeza severo:</strong> Puede ser súbito y severo, sin causa aparente.</li>
+                        <li><strong>Dificultad para caminar:</strong> Falta de coordinación o pérdida del equilibrio.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div id="section3" class="section urgent">
+                <h2 class="section-heading">Plan de Acción en Caso de Emergencia</h2>
+                <p class="section-content">
+                    <strong>¡Actuar Rápidamente!</strong>
+                    Si sospechas de un ACV, sigue estos pasos:
+                    <ul>
+                        <li><strong>Llame inmediatamente al servicio de emergencias:</strong> Teléfono de emergencia local.</li>
+                        <li><strong>Anota el horario de aparición de los síntomas:</strong> Es importante para el tratamiento.</li>
+                        <li><strong>Permanezca con el paciente:</strong> No le ofrezca alimentos ni líquidos.</li>
+                        <li><strong>Prepare los documentos médicos:</strong> Ten a mano cualquier documento o información médica relevante.</li>
+                    </ul>
+                    <div class="heartbeat">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="section4" class="section">
+                <h2 class="section-heading">Cómo Evitar el Estrés</h2>
+                <p class="section-content">
+                    <ul>
+                        <li>Fomentar un ambiente tranquilo en el hogar.</li>
+                        <li>Incentivar la práctica de técnicas de relajación, como la meditación o la respiración profunda.</li>
+                        <li>Promover actividades recreativas que el paciente disfrute.</li>
+                        <li>Evitar discusiones o situaciones que puedan generar estrés.</li>
+                        <li>Apoyar emocionalmente al paciente y fomentar la comunicación abierta.</li>
+                    </ul>
+                </p>
+                <div class="image-placeholder"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Juntos, cuidamos y protegemos a nuestra familia. ❤️</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
